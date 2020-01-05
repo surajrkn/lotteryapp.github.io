@@ -163,11 +163,16 @@
         search.addEventListener('click', function(e){
             e.preventDefault();
             var searchResult = searchNumber(searchBar.value, data);
-            console.log('search', searchResult[0].date);
+            console.log('search', searchResult.length);
             searchResultShow.innerHTML = '';
-            searchResult.map((data) => {
+            if(searchResult.length == 0) {
+                alert('sorry no result');
+            }else {
+                searchResult.map((data) => {
                 searchResultShow.innerHTML += data.date + ' '+ data.day+ ' '+data.number+'</br>';
             })
+            }
+            
             
         })
         
